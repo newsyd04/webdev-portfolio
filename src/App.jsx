@@ -41,7 +41,6 @@ function App() {
       {/* Main content with top padding to avoid being hidden under the fixed header */}
       <main className="">
         <Routes>
-          <Route path="*" element={<NotFound />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/contact" element={<ContactPage />} />
