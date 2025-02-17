@@ -15,7 +15,7 @@ function App() {
     <div className="w-full min-h-screen overflow-hidden">
       {/* Fixed header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-transparent w-full px-4">
-        <div className="max-w-7xl mx-auto flex flex-row items-center justify-between p-4 relative">
+        <div className="max-w-7xl mx-auto flex flex-row items-center justify-center p-4 relative">
           {/* Profile Card (Left) */}
           <div className="flex sm:absolute sm:left-0">
             <Link to="/">
