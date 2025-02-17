@@ -14,28 +14,29 @@ function App() {
   return (
     <div className="w-full min-h-screen overflow-hidden">
       {/* Fixed header */}
-      <header className="absolute top-0 left-0 right-0 z-50 bg-transparent">
-        <div className="max-w-7xl mx-auto flex flex-row sm:flex-row items-center justify-center gap-6 sm:gap-x-16 p-4 relative">
-          {/* ProfileCard positioned to the left (centered on mobile) */}
-          <div className="sm:absolute sm:left-0">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-transparent w-full px-4">
+        <div className="max-w-7xl mx-auto flex flex-row items-center justify-between p-4 relative">
+          {/* Profile Card (Left) */}
+          <div className="flex sm:absolute sm:left-0">
             <Link to="/">
               <ProfileCard />
             </Link>
           </div>
 
-          {/* Centered NavBar */}
-          <div className="flex justify-center">
+          {/* Centered Navbar */}
+          <div className="flex justify-center w-full">
             <NavBar />
           </div>
 
-          {/* ContactCard positioned to the right (centered on mobile) */}
-          <div className="sm:absolute sm:right-0">
+          {/* Contact Card (Right) */}
+          <div className="flex sm:absolute sm:right-0">
             <Link to="/contact">
               <ContactCard />
             </Link>
           </div>
         </div>
       </header>
+
 
 
       {/* Main content with top padding to avoid being hidden under the fixed header */}
