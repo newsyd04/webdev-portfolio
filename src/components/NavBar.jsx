@@ -6,7 +6,7 @@ import { BackgroundGradient } from "./ui/background-gradient";
 
 export function NavBar() {
   return (
-    <div className="flex items-center justify-center">
+    <div className="w-full flex items-center justify-center">
       <BackgroundGradient>
       <Navbar />
       </BackgroundGradient>

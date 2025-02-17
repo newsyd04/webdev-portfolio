@@ -12,7 +12,7 @@ import SamplesPage from "./pages/SamplesPage"
 
 function App() {
   return (
-    <div className="overflow-hidden">
+    <div className="w-full min-h-screen overflow-hidden">
       {/* Fixed header */}
       <header className="absolute top-0 left-0 right-0 z-50 bg-transparent">
         <div className="max-w-7xl mx-auto flex flex-row sm:flex-row items-center justify-center gap-6 sm:gap-x-16 p-4 relative">

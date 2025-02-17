@@ -6,7 +6,7 @@ import { Boxes } from "../components/ui/background-boxes";
 export default function ContactPage() {
   return (
     <>
-      <div className="h-screen w-full flex items-center justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
+      <div className="min-h-screen w-full flex items-center justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
         <Boxes />
         <div className=" max-w-7xl mx-auto relative z-10 flex items-center justify-center">
           <div className="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl mx-10 md:mx-0 p-8 md:p-12 max-w-lg w-full text-center">
