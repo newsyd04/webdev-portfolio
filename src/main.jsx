@@ -6,6 +6,8 @@ import './index.css';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
+  <div className="overflow-hidden">
     <App />
+    </div>
   </BrowserRouter>
 );
