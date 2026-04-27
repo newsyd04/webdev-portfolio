@@ -11,7 +11,7 @@ import school from "../assets/school-site.png";
 import abe from "../assets/abe-picture.png";
 import sof from "../assets/sof-pic.png";
 import mindseye from "../assets/mindseye.png";
-import scoilMhaolcheadair from "../assets/scoil-mhaolcheadair.gif";
+import scoilMhaolcheadair from "../assets/scoil-mhaolcheadair.png";
 
 const SAMPLES = [
   {
