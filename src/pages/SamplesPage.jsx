@@ -1,101 +1,160 @@
+"use client";
 import React from "react";
+import PageHeader from "../components/PageHeader";
+import Section from "../components/Section";
+import Button from "../components/Button";
+import FadeIn from "../components/FadeIn";
+import SEO from "../components/SEO";
+
 import ddImage from "../assets/dd-screengrab.png";
 import kerryber from "../assets/kerryber.png";
 import school from "../assets/school-site.png";
 import trucking from "../assets/sp-trucking.png";
 import abe from "../assets/abe-picture.png";
 import sof from "../assets/sof-pic.png";
-import { Boxes } from "../components/ui/background-boxes";
 
-const SamplesPage = () => {
-  const projectList = [
-    {
-      title: "School Website",
-      description:
-        "Website for a primary school, showcasing events, announcements, and resources.",
-      image: school,
-      link: "https://newsyd04.github.io/scoil-bhreac-chluain-website/",
-    },
-    {
-      title: "Direct Drywall Website",
-      description:
-        "Website designed for Direct Drywall to showcase services and contact info.",
-      image: ddImage,
-      link: "https://newsyd04.github.io/direct-drywall-site/",
-    },
-    {
-      title: "SP Trucking Website",
-      description:
-        "A website designed to showcase SP Trucking's services and fleet information.",
-      image: trucking,
-      link: "https://newsyd04.github.io/sp-trucking-site/",
-    },
-    {
-      title: "Kerry BER Website",
-      description:
-        "A website for Kerry BER, a certified domestic BER assessor business.",
-      image: kerryber,
-      link: "https://kerryber.ie",
-    },
-    {
-      title: "Local Artist Portfolio Website",
-      description:
-        "A website for a local artist, showcasing pieces and providing contact and lesson details.",
-      image: abe,
-      link: "https://newsyd04.github.io/abes-art-site/",
-    },
-    {
-      title: "Local Photographer Portfolio Website",
-      description:
-        "A website for a local photographer, showcasing their favourite pieces and providing contact and sales details.",
-      image: sof,
-      link: "https://newsyd04.github.io/secrets-of-flowers-site",
-    },
-  ];
+const SAMPLES = [
+  {
+    title: "Kerry BER",
+    location: "Annascaul, Co. Kerry",
+    description:
+      "BER assessor business site — services, sample certificate, contact funnel.",
+    tags: ["Eleventy", "Static", "SEO"],
+    image: kerryber,
+    link: "https://kerryber.ie",
+  },
+  {
+    title: "Secrets of Flowers",
+    location: "Tralee, Co. Kerry",
+    description:
+      "Botanical photography portfolio + e-commerce with PayPal checkout, booking calendar, and Cloudinary uploads.",
+    tags: ["React", "Vite", "PayPal", "MongoDB"],
+    image: sof,
+    link: "https://newsyd04.github.io/secrets-of-flowers-site",
+  },
+  {
+    title: "Abe's Art Studio",
+    location: "Dublin",
+    description:
+      "Local artist's portfolio site showcasing pieces with contact + lesson booking details.",
+    tags: ["React", "Vite", "Tailwind"],
+    image: abe,
+    link: "https://newsyd04.github.io/abes-art-site/",
+  },
+  {
+    title: "Scoil Bhreac Chluain",
+    location: "Co. Kerry",
+    description:
+      "Primary school website — events, announcements, parent resources, staff bios.",
+    tags: ["Static", "Responsive"],
+    image: school,
+    link: "https://newsyd04.github.io/scoil-bhreac-chluain-website/",
+  },
+  {
+    title: "Direct Drywall",
+    location: "Ireland",
+    description:
+      "Trades business marketing site — services, gallery, contact form, click-to-call.",
+    tags: ["Static", "SEO"],
+    image: ddImage,
+    link: "https://newsyd04.github.io/direct-drywall-site/",
+  },
+  {
+    title: "SP Trucking",
+    location: "Ireland",
+    description:
+      "Haulage & logistics company site — fleet info, services, quote requests.",
+    tags: ["Static", "Responsive"],
+    image: trucking,
+    link: "https://newsyd04.github.io/sp-trucking-site/",
+  },
+];
 
+export default function SamplesPage() {
   return (
-    <section className="min-h-screen w-full flex flex-col items-center justify-start bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
-      <Boxes />
-      <div className="max-w-6xl mx-auto relative z-10 flex flex-col items-center py-20 justify-start pt-32 md:pt-48 px-4">
-        <h2 className="text-4xl font-bold text-white text-center mb-12">
-          Commercial Web Development
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {projectList.map((project, index) => (
-            <div
-              key={index}
-              className="bg-white/10 backdrop-blur-lg p-4 rounded-xl shadow-lg flex flex-col items-center text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
-            >
+    <>
+      <SEO
+        title="Samples"
+        description="A selection of recent client websites — local trades, photographers, schools, and small businesses across Ireland."
+      />
+
+      <PageHeader
+        eyebrow="Recent work"
+        title="Samples."
+        description="Real client builds. Every one is a custom React or static site — no templates, no Wix, no Squarespace."
+      >
+        <Button to="/contact" variant="primary" size="md">
+          Start your own
+        </Button>
+      </PageHeader>
+
+      <Section>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {SAMPLES.map((p, i) => (
+            <FadeIn key={p.title} delay={(i % 2) * 0.08}>
               <a
-                href={project.link}
+                href={p.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative w-full rounded-lg overflow-hidden border border-gray-200 shadow-sm mb-4"
+                className="group block bg-ink-850 rounded-soft border border-white/5 hover:border-white/15 overflow-hidden transition"
               >
-                <img
-                  src={project.image}
-                  alt={`${project.title} Screenshot`}
-                  className="w-full h-40 object-cover"
-                />
+                <div className="aspect-[16/10] overflow-hidden bg-ink-800">
+                  <img
+                    src={p.image}
+                    alt={`${p.title} site screenshot`}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="flex items-baseline justify-between gap-3">
+                    <h3 className="text-xl font-semibold text-snow-50">
+                      {p.title}
+                    </h3>
+                    <span className="text-xs text-snow-400 shrink-0">
+                      {p.location}
+                    </span>
+                  </div>
+                  <p className="mt-2 text-sm text-snow-300 leading-relaxed">
+                    {p.description}
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-1.5">
+                    {p.tags.map((t) => (
+                      <span
+                        key={t}
+                        className="text-[11px] text-snow-300 bg-white/5 border border-white/10 px-2 py-1 rounded-full"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  <span className="mt-5 inline-flex items-center gap-1.5 text-accent-400 text-sm font-semibold group-hover:gap-2 transition-all">
+                    Visit live site
+                    <i className="fa-solid fa-arrow-up-right-from-square text-[11px]" aria-hidden />
+                  </span>
+                </div>
               </a>
-              <h3 className="text-lg font-semibold text-white mb-2">
-                {project.title}
-              </h3>
-              <p className="text-neutral-300 mb-4 text-sm">{project.description}</p>
-              <a
-                href={project.link}
-                className="text-blue-500 hover:text-blue-600 font-medium"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Project
-              </a>
-            </div>
+            </FadeIn>
           ))}
         </div>
-      </div>
-    </section>
-  );
-};
+      </Section>
 
-export default SamplesPage;
+      {/* CTA */}
+      <Section spacing="tight" tone="elevated">
+        <div className="text-center max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold">
+            Don't see your kind of business?
+          </h2>
+          <p className="mt-3 text-snow-300">
+            Most projects start with a quick chat. Tell me what you need.
+          </p>
+          <div className="mt-6">
+            <Button to="/contact" variant="primary" size="md">
+              Get in touch
+            </Button>
+          </div>
+        </div>
+      </Section>
+    </>
+  );
+}

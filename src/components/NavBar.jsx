@@ -1,88 +1,168 @@
-"use client";
-import React, { useState, useEffect, useRef } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/navbar-menu";
-import { cn } from "../lib/utils";
-import { BackgroundGradient } from "./ui/background-gradient";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation, NavLink } from "react-router-dom";
 
-export function NavBar() {
-  return (
-    <div className="w-full flex items-center justify-center px-2 sm:px-4">
-      <BackgroundGradient>
-      <Navbar />
-      </BackgroundGradient>
-    </div>
-  );
-}
+const NAV_LINKS = [
+  { to: "/services", label: "Services" },
+  { to: "/samples", label: "Samples" },
+  { to: "/pricing", label: "Pricing" },
+];
 
-function Navbar({ className }) {
-  const [active, setActive] = useState(null);
-  const [isMobile, setIsMobile] = useState(false);
-  const timeoutRef = useRef();
+export default function NavBar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
-  // Detect screen width
+  // Scroll-aware: solid background once scrolled past hero glow
   useEffect(() => {
-    const checkScreenSize = () => setIsMobile(window.innerWidth < 768);
-    checkScreenSize(); // Run on mount
-    window.addEventListener("resize", checkScreenSize);
-    return () => window.removeEventListener("resize", checkScreenSize);
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Shared handler: cancel any pending clear and set the active item.
-  const handleSetActive = (item) => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-    setActive(item);
-  };
+  // Lock body scroll when overlay menu is open
+  useEffect(() => {
+    document.body.classList.toggle("nav-locked", isOpen);
+    return () => document.body.classList.remove("nav-locked");
+  }, [isOpen]);
 
-  // Shared handler: clear active after a slight delay.
-  const handleClearActive = () => {
-    timeoutRef.current = setTimeout(() => {
-      setActive(null);
-    }, 100);
-  };
+  // Close on route change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
+
+  // Close on ESC
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, []);
 
   return (
-    <div className={cn("flex", className)}>
-      <Menu setActive={isMobile ? () => {} : setActive} onMouseLeave={handleClearActive}>
-        <MenuItem setActive={handleSetActive} item="Services" href="/services" />
-        <MenuItem setActive={handleSetActive} href="/samples" {...(!isMobile && { active })} item="Samples" onMouseLeave={handleClearActive}>
-          {!isMobile && (
-            <><div className="text-sm grid grid-cols-2 gap-10 p-4">
-              <ProductItem
-                title="School Website"
-                href="https://newsyd04.github.io/scoil-bhreac-chluain-website/"
-                src="https://www.daranewso.me/static/media/school-site.bf1e0b2d9c7b775c8ada.png"
-                description="Website for a primary school, showcasing events, announcements, and resources." />
-              <ProductItem
-                title="Direct Drywall Website"
-                href="https://newsyd04.github.io/direct-drywall-site/"
-                src="https://www.daranewso.me/static/media/dd-screengrab.162e8965a045eb32ac2e.png"
-                description="Website designed for Direct Drywall to showcase services and contact info." />
-              <ProductItem
-                title="SP Trucking Website"
-                href="https://newsyd04.github.io/sp-trucking-site/"
-                src="https://www.daranewso.me/static/media/sp-trucking.184041eb01cb7f6bfc13.png"
-                description="A website designed to showcase SP Trucking's services and fleet information." />
-              <ProductItem
-                title="Kerry BER Website"
-                href="https://kerryber.ie/"
-                src="https://www.daranewso.me/static/media/kerryber.36c48abeb1cfa0c42399.png"
-                description="A website for Kerry BER, a certified domestic BER assessor business." />
-            </div>
-            <div className="flex justify-center mt-4">
-              <a 
-                href="/samples" 
-                className="text-white font-semibold underline"
-              >
-                See more samples here.
-              </a>
-            </div>
-            </>
-          )}
-        </MenuItem>
-        <MenuItem setActive={handleSetActive} item="Pricing" href="/pricing" />
-      </Menu>
-    </div>
+    <>
+      <nav
+        aria-label="Primary"
+        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-200 ${
+          scrolled
+            ? "bg-ink-950/85 backdrop-blur border-b border-white/5"
+            : "bg-transparent"
+        }`}
+      >
+        <div className="mx-auto max-w-page px-6 lg:px-8 h-16 flex items-center justify-between">
+          {/* Brand */}
+          <Link
+            to="/"
+            className="flex items-center gap-2.5 text-snow-50 font-bold text-lg"
+            aria-label="Home"
+          >
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-accent-500/15 text-accent-400 font-bold">
+              N
+            </span>
+            <span className="hidden sm:inline">Dara Newsome</span>
+          </Link>
+
+          {/* Desktop links */}
+          <ul className="hidden md:flex items-center gap-1">
+            {NAV_LINKS.map((l) => (
+              <li key={l.to}>
+                <NavLink
+                  to={l.to}
+                  className={({ isActive }) =>
+                    `px-4 py-2 rounded-full text-sm font-medium transition ${
+                      isActive
+                        ? "text-snow-50 bg-white/5"
+                        : "text-snow-300 hover:text-snow-50 hover:bg-white/5"
+                    }`
+                  }
+                >
+                  {l.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+
+          {/* Right side: contact CTA on desktop, hamburger on mobile */}
+          <div className="flex items-center gap-3">
+            <Link
+              to="/contact"
+              className="hidden md:inline-flex items-center gap-1.5 bg-accent-500 hover:bg-accent-600 text-white px-4 py-2 rounded-full text-sm font-semibold transition shadow-lg shadow-accent-500/20"
+            >
+              Get a quote
+              <i className="fa-solid fa-arrow-right text-[11px]" aria-hidden />
+            </Link>
+
+            <button
+              type="button"
+              className="md:hidden inline-flex items-center gap-2 h-10 px-3 rounded-full border border-white/15 text-snow-100 hover:bg-white/5"
+              aria-expanded={isOpen}
+              aria-controls="mobile-nav"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              onClick={() => setIsOpen((o) => !o)}
+            >
+              <span className="relative w-4 h-3 inline-block">
+                <span
+                  className={`absolute left-0 right-0 h-[2px] bg-current rounded transition ${
+                    isOpen ? "top-[5px] rotate-45" : "top-0"
+                  }`}
+                />
+                <span
+                  className={`absolute left-0 right-0 h-[2px] bg-current rounded transition top-[5px] ${
+                    isOpen ? "opacity-0" : ""
+                  }`}
+                />
+                <span
+                  className={`absolute left-0 right-0 h-[2px] bg-current rounded transition ${
+                    isOpen ? "top-[5px] -rotate-45" : "top-[10px]"
+                  }`}
+                />
+              </span>
+              <span className="text-sm font-medium">
+                {isOpen ? "Close" : "Menu"}
+              </span>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile overlay */}
+      <div
+        id="mobile-nav"
+        className={`fixed inset-0 z-40 bg-ink-950 md:hidden transition-opacity duration-200 ${
+          isOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <div className="h-full flex flex-col pt-24 px-6 pb-10">
+          <ul className="flex-1 flex flex-col items-stretch gap-1">
+            {NAV_LINKS.map((l) => (
+              <li key={l.to}>
+                <NavLink
+                  to={l.to}
+                  className={({ isActive }) =>
+                    `block px-4 py-4 rounded-xl text-lg font-semibold transition ${
+                      isActive
+                        ? "text-snow-50 bg-white/5"
+                        : "text-snow-200 hover:bg-white/5"
+                    }`
+                  }
+                >
+                  {l.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+          <Link
+            to="/contact"
+            className="mt-6 inline-flex items-center justify-center gap-2 bg-accent-500 hover:bg-accent-600 text-white px-6 py-4 rounded-full text-base font-semibold"
+          >
+            Get a quote
+            <i className="fa-solid fa-arrow-right" aria-hidden />
+          </Link>
+        </div>
+      </div>
+    </>
   );
 }
