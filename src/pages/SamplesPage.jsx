@@ -6,19 +6,37 @@ import Button from "../components/Button";
 import FadeIn from "../components/FadeIn";
 import SEO from "../components/SEO";
 
-import ddImage from "../assets/dd-screengrab.png";
 import kerryber from "../assets/kerryber.png";
 import school from "../assets/school-site.png";
-import trucking from "../assets/sp-trucking.png";
 import abe from "../assets/abe-picture.png";
 import sof from "../assets/sof-pic.png";
+import mindseye from "../assets/mindseye.png";
+import scoilMhaolcheadair from "../assets/scoil-mhaolcheadair.gif";
 
 const SAMPLES = [
+  {
+    title: "Scoil Bhreac Chluain",
+    location: "Co. Kerry",
+    description:
+      "Primary school website · events, announcements, parent resources, staff bios.",
+    tags: ["Static", "Responsive"],
+    image: school,
+    link: "https://www.scoilbhreacchluain.ie",
+  },
+  {
+    title: "Abe's Art Studio",
+    location: "Dublin",
+    description:
+      "Local artist's portfolio site showcasing pieces with contact + lesson booking details.",
+    tags: ["React", "Vite", "Tailwind"],
+    image: abe,
+    link: "https://abeboland.art",
+  },
   {
     title: "Kerry BER",
     location: "Annascaul, Co. Kerry",
     description:
-      "BER assessor business site — services, sample certificate, contact funnel.",
+      "BER assessor business site · services, sample certificate, contact funnel.",
     tags: ["Eleventy", "Static", "SEO"],
     image: kerryber,
     link: "https://kerryber.ie",
@@ -30,43 +48,25 @@ const SAMPLES = [
       "Botanical photography portfolio + e-commerce with PayPal checkout, booking calendar, and Cloudinary uploads.",
     tags: ["React", "Vite", "PayPal", "MongoDB"],
     image: sof,
-    link: "https://newsyd04.github.io/secrets-of-flowers-site",
+    link: "https://www.secrets-of-flowers.daranewso.me/",
   },
   {
-    title: "Abe's Art Studio",
-    location: "Dublin",
+    title: "Mind's Eye Resilience & Wellbeing",
+    location: "Ireland",
     description:
-      "Local artist's portfolio site showcasing pieces with contact + lesson booking details.",
+      "Website for a mental health and wellness service · service info, practitioner bio, contact.",
     tags: ["React", "Vite", "Tailwind"],
-    image: abe,
-    link: "https://newsyd04.github.io/abes-art-site/",
+    image: mindseye,
+    link: "https://mindseyeresilience.com/",
   },
   {
-    title: "Scoil Bhreac Chluain",
+    title: "Scoil Mhaolcheadair",
     location: "Co. Kerry",
     description:
-      "Primary school website — events, announcements, parent resources, staff bios.",
-    tags: ["Static", "Responsive"],
-    image: school,
-    link: "https://newsyd04.github.io/scoil-bhreac-chluain-website/",
-  },
-  {
-    title: "Direct Drywall",
-    location: "Ireland",
-    description:
-      "Trades business marketing site — services, gallery, contact form, click-to-call.",
-    tags: ["Static", "SEO"],
-    image: ddImage,
-    link: "https://newsyd04.github.io/direct-drywall-site/",
-  },
-  {
-    title: "SP Trucking",
-    location: "Ireland",
-    description:
-      "Haulage & logistics company site — fleet info, services, quote requests.",
-    tags: ["Static", "Responsive"],
-    image: trucking,
-    link: "https://newsyd04.github.io/sp-trucking-site/",
+      "Primary school site · school information, news, parent resources.",
+    tags: ["React", "Vite", "Tailwind"],
+    image: scoilMhaolcheadair,
+    link: "https://scoil-mhaolcheadair-website.vercel.app/",
   },
 ];
 
@@ -75,13 +75,13 @@ export default function SamplesPage() {
     <>
       <SEO
         title="Samples"
-        description="A selection of recent client websites — local trades, photographers, schools, and small businesses across Ireland."
+        description="A selection of recent client websites · local trades, photographers, schools, and small businesses across Ireland."
       />
 
       <PageHeader
         eyebrow="Recent work"
         title="Samples."
-        description="Real client builds. Every one is a custom React or static site — no templates, no Wix, no Squarespace."
+        description="Real client builds. Every one is a custom React or static site · no templates, no Wix, no Squarespace."
       >
         <Button to="/contact" variant="primary" size="md">
           Start your own

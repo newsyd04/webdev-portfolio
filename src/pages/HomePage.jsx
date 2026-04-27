@@ -42,13 +42,13 @@ const SAMPLES_PREVIEW = [
   {
     title: "Secrets of Flowers",
     image: sof,
-    link: "https://newsyd04.github.io/secrets-of-flowers-site",
+    link: "https://www.secrets-of-flowers.daranewso.me/",
     blurb: "Botanical photography & prints",
   },
   {
     title: "Abe's Art Studio",
     image: abe,
-    link: "https://newsyd04.github.io/abes-art-site/",
+    link: "https://abeboland.art",
     blurb: "Local artist portfolio",
   },
 ];
@@ -58,10 +58,10 @@ export default function HomePage() {
     <>
       <SEO
         title="Freelance Web Developer in Dublin"
-        description="I build modern, responsive websites for small businesses across Ireland. From local trades to creative portfolios — honest pricing, fast turnaround."
+        description="I build modern, responsive websites for small businesses across Ireland. From local trades to creative portfolios · honest pricing, fast turnaround."
       />
 
-      {/* —— HERO —— */}
+      {/* ·· HERO ·· */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 hero-glow pointer-events-none" />
         <Container className="relative pt-32 pb-20 md:pt-44 md:pb-28">
@@ -78,7 +78,6 @@ export default function HomePage() {
             <p className="mt-6 text-lg md:text-xl text-snow-300 leading-relaxed max-w-2xl">
               I'm Dara Newsome. I build fast, mobile-first sites for local
               trades, creative portfolios, and small businesses across Ireland.
-              Honest pricing, no jargon, no upsells.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Button to="/contact" variant="primary" size="lg">
@@ -91,7 +90,7 @@ export default function HomePage() {
             <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-snow-300">
               <span className="inline-flex items-center gap-2">
                 <i className="fa-solid fa-circle-check text-accent-400" aria-hidden />
-                Built &amp; launched in 2–4 weeks
+                Built &amp; launched in 2 to 4 weeks
               </span>
               <span className="inline-flex items-center gap-2">
                 <i className="fa-solid fa-circle-check text-accent-400" aria-hidden />
@@ -106,7 +105,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* —— SERVICES PREVIEW —— */}
+      {/* ·· SERVICES PREVIEW ·· */}
       <Section tone="elevated">
         <FadeIn className="text-center max-w-2xl mx-auto mb-12">
           <p className="text-accent-400 text-xs uppercase tracking-[0.2em] mb-3 font-semibold">
@@ -143,7 +142,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* —— SAMPLES PREVIEW —— */}
+      {/* ·· SAMPLES PREVIEW ·· */}
       <Section>
         <FadeIn className="text-center max-w-2xl mx-auto mb-12">
           <p className="text-accent-400 text-xs uppercase tracking-[0.2em] mb-3 font-semibold">
@@ -153,7 +152,7 @@ export default function HomePage() {
             Real businesses, real websites.
           </h2>
           <p className="mt-4 text-snow-300">
-            A small selection of recent client builds. Every site is custom —
+            A small selection of recent client builds. Every site is custom ·
             no templates, no page builders.
           </p>
         </FadeIn>
@@ -194,7 +193,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* —— MINI BIO (replaces unused About page) —— */}
+      {/* ·· MINI BIO (replaces unused About page) ·· */}
       <Section tone="elevated" spacing="tight">
         <FadeIn className="max-w-3xl mx-auto text-center">
           <p className="text-accent-400 text-xs uppercase tracking-[0.2em] mb-3 font-semibold">
@@ -223,7 +222,7 @@ export default function HomePage() {
         </FadeIn>
       </Section>
 
-      {/* —— CTA STRIP —— */}
+      {/* ·· CTA STRIP ·· */}
       <section className="relative overflow-hidden bg-gradient-to-br from-accent-600 to-accent-500">
         <Container className="py-16 md:py-20 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white max-w-2xl mx-auto leading-tight">

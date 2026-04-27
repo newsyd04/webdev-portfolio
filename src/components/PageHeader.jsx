@@ -4,7 +4,7 @@ import Container from "./Container";
 export default function PageHeader({ eyebrow, title, description, children }) {
   return (
     <header className="relative pt-32 pb-16 md:pt-40 md:pb-20 overflow-hidden">
-      {/* Subtle radial glow only on the hero — single signature treatment */}
+      {/* Subtle radial glow only on the hero · single signature treatment */}
       <div className="absolute inset-0 hero-glow pointer-events-none" />
 
       <Container className="relative">

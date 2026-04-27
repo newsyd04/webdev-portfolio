@@ -8,7 +8,7 @@ const SITE = "Dara Newsome";
  */
 export default function SEO({ title, description }) {
   useEffect(() => {
-    if (title) document.title = `${title} — ${SITE}`;
+    if (title) document.title = `${title} · ${SITE}`;
     if (description) {
       const meta = document.querySelector('meta[name="description"]');
       if (meta) meta.setAttribute("content", description);
@@ -16,7 +16,7 @@ export default function SEO({ title, description }) {
       if (og) og.setAttribute("content", description);
       const ogTitle = document.querySelector('meta[property="og:title"]');
       if (ogTitle && title)
-        ogTitle.setAttribute("content", `${title} — ${SITE}`);
+        ogTitle.setAttribute("content", `${title} · ${SITE}`);
     }
   }, [title, description]);
   return null;

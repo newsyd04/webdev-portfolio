@@ -18,7 +18,7 @@ const CONTACTS = [
     label: "Phone",
     value: "+353 83 454 6712",
     href: "tel:+353834546712",
-    note: "Mon–Fri evenings, weekends",
+    note: "Mon-Fri evenings, weekends",
   },
   {
     icon: "fa-solid fa-location-dot",
@@ -34,7 +34,7 @@ export default function ContactPage() {
     <>
       <SEO
         title="Contact"
-        description="Get in touch about your project. Email, phone, or send a quick brief — quotes typically within a working day."
+        description="Get in touch about your project. Email, phone, or send a quick brief · quotes typically within a working day."
       />
 
       <PageHeader
@@ -83,34 +83,34 @@ export default function ContactPage() {
               <i className="fa-solid fa-check text-accent-400 mt-1" aria-hidden />
               <span>
                 <strong className="text-snow-50">Your business / project</strong>
-                {" "}— a couple of sentences about what you do.
+                {" "}· a couple of sentences about what you do.
               </span>
             </li>
             <li className="flex items-start gap-3">
               <i className="fa-solid fa-check text-accent-400 mt-1" aria-hidden />
               <span>
                 <strong className="text-snow-50">What you need</strong>
-                {" "}— a brand new site, a redesign, an e-commerce add-on, etc.
+                {" "}· a brand new site, a redesign, an e-commerce add-on, etc.
               </span>
             </li>
             <li className="flex items-start gap-3">
               <i className="fa-solid fa-check text-accent-400 mt-1" aria-hidden />
               <span>
                 <strong className="text-snow-50">Rough timeline</strong>
-                {" "}— "ASAP", "next month", "before summer" — anything helps.
+                {" "}· "ASAP", "next month", "before summer" · anything helps.
               </span>
             </li>
             <li className="flex items-start gap-3">
               <i className="fa-solid fa-check text-accent-400 mt-1" aria-hidden />
               <span>
                 <strong className="text-snow-50">Examples you like</strong>
-                {" "}— links to sites you'd want yours to feel like.
+                {" "}· links to sites you'd want yours to feel like.
               </span>
             </li>
           </ul>
           <p className="mt-7 text-snow-300 text-sm">
             That's enough for me to send a fixed quote. Don't worry if you
-            don't have all of it — we can figure it out together.
+            don't have all of it · we can figure it out together.
           </p>
         </FadeIn>
       </Section>

@@ -11,7 +11,7 @@ const SERVICES = [
     icon: "fa-solid fa-code",
     title: "Custom websites",
     description:
-      "Hand-built React and Next.js sites — no page builders, no template clones. Fully responsive, fully yours, easy to maintain.",
+      "Hand-built React and Next.js sites · no page builders, no template clones. Fully responsive, fully yours, easy to maintain.",
   },
   {
     icon: "fa-solid fa-pencil-ruler",
@@ -23,7 +23,7 @@ const SERVICES = [
     icon: "fa-solid fa-mobile-screen",
     title: "Mobile-first builds",
     description:
-      "Most visitors land on a phone. Every site is designed for that screen first, then scaled up — not the other way round.",
+      "Most visitors land on a phone. Every site is designed for that screen first, then scaled up · not the other way round.",
   },
   {
     icon: "fa-solid fa-magnifying-glass-chart",
@@ -35,13 +35,19 @@ const SERVICES = [
     icon: "fa-solid fa-cart-shopping",
     title: "E-commerce",
     description:
-      "Stripe or PayPal checkout, product pages, order tracking. Suitable for small catalogues — not Shopify-scale shops.",
+      "Stripe or PayPal checkout, product pages, order tracking. Suitable for small catalogues · not Shopify-scale shops.",
   },
   {
     icon: "fa-solid fa-rotate",
     title: "Maintenance & care",
     description:
-      "Monthly retainer for content updates, security patches, and small tweaks. Optional, paused or cancelled any time.",
+      "Yearly retainer for content updates, security patches, and small tweaks. Optional, cancelled at any renewal.",
+  },
+  {
+    icon: "fa-solid fa-server",
+    title: "Hosting & domain",
+    description:
+      "Whatever fits your setup: I can host the site and own the domain on your behalf, or set everything up in your own account so you hold it. Renewals, DNS, and SSL handled either way.",
   },
 ];
 
@@ -49,7 +55,7 @@ const PROCESS = [
   {
     n: "01",
     title: "Quick chat",
-    text: "Tell me about your business and what you need. 20-minute call or email — no commitment.",
+    text: "Tell me about your business and what you need. 20-minute call or email · no commitment.",
   },
   {
     n: "02",
@@ -64,7 +70,7 @@ const PROCESS = [
   {
     n: "04",
     title: "Launch & support",
-    text: "Site goes live on your domain. Email or call any time — small tweaks for the first month are on the house.",
+    text: "Site goes live on your domain. Email or call any time · small tweaks for the first month are on the house.",
   },
 ];
 
@@ -73,13 +79,13 @@ export default function ServicesPage() {
     <>
       <SEO
         title="Services"
-        description="Custom websites, mobile-first builds, brand & UI design, SEO, e-commerce, and ongoing maintenance — for small businesses across Ireland."
+        description="Custom websites, mobile-first builds, brand & UI design, SEO, e-commerce, and ongoing maintenance · for small businesses across Ireland."
       />
 
       <PageHeader
         eyebrow="What I do"
         title="Services."
-        description="Everything most small businesses need to get a real website online — without an agency markup or a year-long project plan."
+        description="Everything most small businesses need to get a real website online · without an agency markup or a year-long project plan."
       >
         <Button to="/contact" variant="primary" size="md">
           Start a project

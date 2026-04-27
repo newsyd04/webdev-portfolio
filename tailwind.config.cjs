@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Refined dark palette — warm-leaning neutral grays so the theme
+        // Refined dark palette · warm-leaning neutral grays so the theme
         // doesn't read as sterile / template-default.
         ink: {
           950: "#0a0a0a",
@@ -22,7 +22,7 @@ module.exports = {
           300: "#a3a3a3",
           400: "#737373",
         },
-        // Single accent for CTAs and highlights — bright but disciplined
+        // Single accent for CTAs and highlights · bright but disciplined
         accent: {
           400: "#60a5fa",
           500: "#3b82f6",

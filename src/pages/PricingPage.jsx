@@ -48,7 +48,7 @@ const TIERS = [
     price: "From €1,500",
     cadence: "scope-dependent",
     blurb:
-      "E-commerce, booking flows, custom backends, multi-language — built around your needs.",
+      "E-commerce, booking flows, custom backends, multi-language · built around your needs.",
     features: [
       "Everything in Standard",
       "E-commerce (Stripe / PayPal)",
@@ -64,20 +64,24 @@ const TIERS = [
 ];
 
 const ADDONS = [
-  { label: "Logo design", price: "€150" },
-  { label: "Extra page (after launch)", price: "€80" },
+  { label: "Logo design", price: "€200" },
   { label: "Photography session (Dublin)", price: "from €200" },
   {
-    label: "Monthly maintenance retainer",
-    price: "€60/mo",
-    note: "Cancel any time",
+    label: "Yearly maintenance retainer",
+    price: "€50/yr",
+    note: "Cancel at any renewal",
+  },
+  {
+    label: "Hosting & domain (your choice)",
+    price: "from €25/yr",
+    note: "Managed by me, or set up in your own account",
   },
 ];
 
 const FAQ = [
   {
     q: "What's included in the price?",
-    a: "Design, code, deployment, domain setup, and a written specification. The price you're quoted is the price you pay — no hourly billing surprises.",
+    a: "Design, code, deployment, domain setup, and a written specification. The price you're quoted is the price you pay · no hourly billing surprises.",
   },
   {
     q: "Do I own the website?",
@@ -85,7 +89,7 @@ const FAQ = [
   },
   {
     q: "How long does it take?",
-    a: "Starter: about 1–2 weeks. Standard: 2–4 weeks. Custom: depends on scope, but I'll give you a clear timeline before we start.",
+    a: "Starter: about 1 to 2 weeks. Standard: 2 to 4 weeks. Custom: depends on scope, but I'll give you a clear timeline before we start.",
   },
   {
     q: "What if I need changes after launch?",
@@ -98,7 +102,7 @@ export default function PricingPage() {
     <>
       <SEO
         title="Pricing"
-        description="Three honest fixed-price tiers for freelance web development — Starter €500, Standard €900, Custom from €1,500. No hourly surprises."
+        description="Three honest fixed-price tiers for freelance web development · Starter €500, Standard €900, Custom from €1,500. No hourly surprises."
       />
 
       <PageHeader
@@ -228,7 +232,7 @@ export default function PricingPage() {
           </h2>
           <p className="mt-3 text-snow-300">
             Send a couple of details about your project and I'll point you at
-            the right one — or build a custom quote.
+            the right one · or build a custom quote.
           </p>
           <div className="mt-6">
             <Button to="/contact" variant="primary" size="md">
